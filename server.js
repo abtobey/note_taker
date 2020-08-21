@@ -49,7 +49,6 @@ app.post("/api/notes", function(req, res) {
         noteArray.push(activeNote);
         fs.writeFile(outputPath, JSON.stringify(noteArray), (err) => {
             if (err) throw err;
-            // res.sendFile(path.join(__dirname, "./public/notes.html"));
             res.redirect("/notes");
         });
     });
@@ -68,7 +67,6 @@ app.delete("/api/notes/:id", function(req, res) {
         fs.writeFile(outputPath, JSON.stringify(newArray), (err) => {
             if (err) throw err;
             res.sendFile(path.join(__dirname, "./public/notes.html"));
-            // res.redirect("/notes");
         });
     });
 });
